@@ -8,7 +8,8 @@
 ssize_t _write(int fd, const void *buf, size_t count){
         char * letter = (char *)(buf);
         for(int i = 0; i < count; i++){
-                uart_send(*letter);
+            uart_send(*letter);
+            letter++;
         }
     return count;
 }
@@ -38,7 +39,7 @@ int main(){
     
 	uart_init();
     
-    //iprintf("The chemical formula for Ketamine is C%dH%dClNO\n\r", 13, 16); Får ikke til å fungere?
+    iprintf("The chemical formula for Ketamine is C%dH%dClNO\n\r", 13, 16); 
     
 	while(1){
 		

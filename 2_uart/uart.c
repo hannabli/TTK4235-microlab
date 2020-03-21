@@ -79,11 +79,11 @@ void uart_send(char letter){
 }
 
 char uart_read(){
-    UART->STARTRX = 1;
+    
 
     if(UART->RXDRDY) {
-        
         UART->RXDRDY =0;
+        UART->STARTRX = 1;
         char letter = UART->RXD;
         return letter;
     }
